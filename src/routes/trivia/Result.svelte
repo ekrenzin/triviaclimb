@@ -18,9 +18,7 @@
 
     <h2>Answer</h2>
     <p class={result.correct ? "correct" : "incorrect"}>
-      {result.correct ? "Correct" : "Incorrect"}: Your answer "{result.answer}" {result.correct
-        ? "matches"
-        : "does not match"} the correct answer "{result.correct_answer}"
+      {result.correct ? "Correct" : "Incorrect"}: You answered "{result.answer}"
     </p>
   </div>
 {/if}

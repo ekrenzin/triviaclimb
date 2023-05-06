@@ -26,11 +26,16 @@
   async function loadNewQuestion() {
     triviaQuestion = null;
     result = null;
-    const res = await fetch("/api/trivia", {
-      method: "POST",
-      body: JSON.stringify({ method: "question" }),
-    });
-    triviaQuestion = await res.json();
+    try {
+      const res = await fetch("/api/trivia", {
+        method: "POST",
+        body: JSON.stringify({ method: "question" }),
+      });
+      triviaQuestion = await res.json();
+    } catch (e) {
+      console.error(e);
+      setTimeout(loadNewQuestion, 1000);
+    }
   }
 
   onMount(loadNewQuestion);
