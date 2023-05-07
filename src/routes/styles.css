@@ -1,7 +1,7 @@
 @import "@fontsource/fira-mono";
 
 :root {
-  --font-body: "Open Sans", sans-serif;
+  --font-body: "Poppins", sans-serif;
   --font-mono: "Fira Mono", monospace;
   --color-bg-0: #ffffff;
   --color-bg-1: #f2f2f2;
@@ -21,17 +21,9 @@ body {
   background-attachment: fixed;
   background-color: var(--color-bg-1);
   background-size: 100vw 100vh;
-  background-image: radial-gradient(
-      50% 50% at 50% 50%,
-      rgba(255, 255, 255, 0.75) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    linear-gradient(
-      180deg,
-      var(--color-bg-0) 0%,
-      var(--color-bg-1) 15%,
-      var(--color-bg-2) 50%
-    );
+}
+body {
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 h1,
@@ -45,7 +37,6 @@ p {
 }
 
 a {
-  color: var(--color-theme-1);
   text-decoration: none;
 }
 
@@ -124,3 +115,14 @@ button:focus:not(:focus-visible) {
   .action-button:hover {
     background-color: #005fa3;
   }
+
+  
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}

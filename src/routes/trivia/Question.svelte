@@ -1,5 +1,6 @@
 <script lang="ts">
   import { SelectedCategory } from "$lib/Store";
+  import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
   import { onMount } from "svelte";
 
   export let triviaQuestion: TriviaQuestion | null;
@@ -33,18 +34,18 @@
         body: JSON.stringify({ method: "question", category: $SelectedCategory }),
       });
       triviaQuestion = await res.json();
-      console.log(triviaQuestion)
     } catch (e) {
       console.error(e);
-      setTimeout(loadNewQuestion, 1000);
     }
   }
 
   onMount(loadNewQuestion);
+
+  SelectedCategory.subscribe(loadNewQuestion);
 </script>
 
-{#if triviaQuestion}
   <div class="container">
+    {#if triviaQuestion}
     <h1>{triviaQuestion.question}</h1>
     <div class="choices">
       {#each triviaQuestion.choices as choice}
@@ -52,10 +53,10 @@
       {/each}
     </div>
     <button class="action-button" on:click={loadNewQuestion}>Load New Question</button>
+    {:else}
+    <LoadingSpinner text="Loading New Question" />
+    {/if}
   </div>
-{:else}
-  <p>Loading...</p>
-{/if}
 
 <style>
   .container {

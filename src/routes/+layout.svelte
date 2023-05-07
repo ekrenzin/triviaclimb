@@ -1,36 +1,36 @@
 <script>
 	import Header from './Header.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
 	import './styles.css';
 </script>
 
 <div class="app">
-	<Header />
+	<Navbar />
 
 	<main>
 		<slot />
 	</main>
 
-	<footer>
-		Trivia is fun
-	</footer>
 </div>
 
 <style>
 	.app {
 		display: flex;
 		flex-direction: column;
-		min-height: 100vh;
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
 	}
 
 	main {
+		padding: 1rem;
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
 		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
 		box-sizing: border-box;
+		overflow: auto;
+		align-items: center;
 	}
 
 	footer {
