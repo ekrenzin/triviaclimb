@@ -1,7 +1,7 @@
 <script lang="ts">
   import { SelectedCategory } from "$lib/Store";
   import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
-  import { onMount } from "svelte";
+  import { onDestroy } from "svelte";
 
   export let triviaQuestion: TriviaQuestion | null;
   export let result: TriviaResult | null;
@@ -39,9 +39,19 @@
     }
   }
 
-  onMount(loadNewQuestion);
+  function cleanChoice(choice: string) {
+    //remove any trailing punctuation
+    const cleanAnswer = choice.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+    //remove any trailing whitespace
+    return cleanAnswer.trim();
 
-  SelectedCategory.subscribe(loadNewQuestion);
+  }
+
+  const categorySub = SelectedCategory.subscribe(loadNewQuestion);
+
+  onDestroy(() => {
+    categorySub();
+  });
 </script>
 
   <div class="container">
@@ -49,7 +59,7 @@
     <h1>{triviaQuestion.question}</h1>
     <div class="choices">
       {#each triviaQuestion.choices as choice}
-        <button class="choice" on:click={() => submit(choice)}>{choice}</button>
+        <button class="choice" on:click={() => submit(choice)}>{cleanChoice(choice)}</button>
       {/each}
     </div>
     <button class="action-button" on:click={loadNewQuestion}>Load New Question</button>
