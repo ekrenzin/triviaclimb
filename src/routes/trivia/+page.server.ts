@@ -5,6 +5,7 @@ export const load = (async ({ cookies }) => {
     title: "Trivia",
     description: `Welcome to trivia`,
   };
+  
 
   return { text };
 }) satisfies PageServerLoad;

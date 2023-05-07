@@ -1,9 +1,10 @@
 export {
     getQuestion,
-    postAnswer
+    postAnswer,
+    getCategories
 }
 
-async function getQuestion() {
+async function getQuestion(category?: string) {
   const url = "http://44.226.228.62:8080/api/trivia";
   const res = await fetch(url, {
     method: "POST",
@@ -12,6 +13,7 @@ async function getQuestion() {
     },
     body: JSON.stringify({
       method: "question",
+      category
     }),
   });
   const result = await res.json();
@@ -35,4 +37,21 @@ async function postAnswer(answer: string, question: number) {
   });
   const result = await res.json();
   return result;
+}
+
+async function getCategories() {
+  const url = "http://44.226.228.62:8080/api/trivia";
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      method: "categories",
+    }),
+  });
+  const result = await res.json();
+  const triviaCategories = result.categories;
+
+  return triviaCategories;
 }

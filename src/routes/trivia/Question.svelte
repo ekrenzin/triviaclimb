@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { SelectedCategory } from "$lib/Store";
   import { onMount } from "svelte";
 
   export let triviaQuestion: TriviaQuestion | null;
@@ -29,9 +30,10 @@
     try {
       const res = await fetch("/api/trivia", {
         method: "POST",
-        body: JSON.stringify({ method: "question" }),
+        body: JSON.stringify({ method: "question", category: $SelectedCategory }),
       });
       triviaQuestion = await res.json();
+      console.log(triviaQuestion)
     } catch (e) {
       console.error(e);
       setTimeout(loadNewQuestion, 1000);
