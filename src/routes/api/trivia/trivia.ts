@@ -13,7 +13,7 @@ async function getQuestion(category?: string) {
     },
     body: JSON.stringify({
       method: "question",
-      category
+      category: (category === "Random" || category === undefined) ? null : category,
     }),
   });
   const result = await res.json();

@@ -10,7 +10,7 @@ export async function POST({ request }) {
     response = new Response(JSON.stringify(question), {
       status: 200,
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json", 
       },
     });
     return response;
