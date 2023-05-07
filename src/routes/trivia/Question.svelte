@@ -44,13 +44,88 @@
 {#if triviaQuestion}
   <div class="container">
     <h1>{triviaQuestion.question}</h1>
-    <ol>
+    <div class="choices">
       {#each triviaQuestion.choices as choice}
-        <button on:click={() => submit(choice)}>{choice}</button>
+        <button class="choice" on:click={() => submit(choice)}>{choice}</button>
       {/each}
-    </ol>
-    <button on:click={loadNewQuestion}>Load New Question</button>
+    </div>
+    <button class="action-button" on:click={loadNewQuestion}>Load New Question</button>
   </div>
 {:else}
   <p>Loading...</p>
 {/if}
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .choice {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    font-size: 1.5rem;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+  }
+
+  .choice:hover {
+    background-color: #2980b9;
+  }
+
+  .choice:nth-child(1) {
+    background-color: #3498db;
+  }
+
+  .choice:nth-child(1):hover {
+    background-color: #2980b9;
+  }
+
+  .choice:nth-child(2) {
+    background-color: #e74c3c;
+  }
+
+  .choice:nth-child(2):hover {
+    background-color: #c0392b;
+  }
+
+  .choice:nth-child(3) {
+    background-color: #2ecc71;
+  }
+
+  .choice:nth-child(3):hover {
+    background-color: #27ae60;
+  }
+
+  .choice:nth-child(4) {
+    background-color: #f1c40f;
+  }
+
+  .choice:nth-child(4):hover {
+    background-color: #f39c12;
+  }
+  .action-button {
+    margin: auto;
+    margin-top: 40px;
+  }
+  @media (max-width: 400px) {
+    .choices {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

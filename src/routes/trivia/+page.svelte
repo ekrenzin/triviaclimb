@@ -19,32 +19,21 @@
 
 <Question bind:triviaQuestion bind:result />
 {#if result}
-  <Result bind:result />
+  <Result bind:triviaQuestion bind:result />
 {/if}
 
 <style>
-  .container {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
   h1 {
-    font-size: 24px;
+    font-size: 4rem;
+    font-weight: 900;
     color: #333;
   }
 
-  h2 {
-    font-size: 20px;
-    color: #555;
-  }
 
   p {
-    font-size: 16px;
+    font-size: 1.4rem;
     color: #777;
+    text-align: center;
   }
 
-  ol {
-    list-style-position: inside;
-  }
 </style>
