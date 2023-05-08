@@ -95,7 +95,8 @@ button:focus:not(:focus-visible) {
   white-space: nowrap;
 }
 
-.action-button {
+.action-button, .anchor-button {
+  text-decoration: none;
     background-color: #0077cc;
     color: #ffffff;
     border: none;
@@ -104,9 +105,10 @@ button:focus:not(:focus-visible) {
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
+    cursor: pointer;
   }
 
-  .action-button:hover {
+  .action-button:hover, .anchor-button:hover {
     background-color: #005fa3;
   }
 

@@ -1,11 +1,19 @@
 <script lang="ts">
+    import ColoredWord from './ColoredWord.svelte';
     export let scale: number = 1;
 
+    const colors: string[] = [
+        "#3498db",
+        '#e74c3c',
+        "#2ecc71",
+        "#f1c40f"
+    ]
 </script>
 
-<div class="flex-row" >
-  <h3 style={`font-size: ${scale}rem`}>Trivia</h3>
-  <span style={`font-size: ${scale}rem`}>Climb</span>
+<div class="flex-row"  >
+    <ColoredWord word="Trivia" colors="{colors}" {scale}/>
+    <div style="width: {scale/3}rem" />
+    <ColoredWord word="Climb" colors="{colors}" {scale}/>
 </div>
 
 <style>
