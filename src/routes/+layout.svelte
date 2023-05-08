@@ -6,6 +6,7 @@
   import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
   import type { LayoutData } from "./$types";
+  import Logo from "$lib/components/Logo.svelte";
 
   export let data: LayoutData;
 
@@ -24,9 +25,12 @@
   });
 </script>
 
+<AudioPlayer />
 <div class="app">
   <Navbar />
-  <AudioPlayer />
+  <div class="center">
+    <Logo scale={4} />
+  </div>
   <main>
     <slot />
   </main>

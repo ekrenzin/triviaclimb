@@ -6,8 +6,8 @@
   --color-bg-0: #ffffff;
   --color-bg-1: #f2f2f2;
   --color-bg-2: #ffe1e1;
-  --color-theme-1: #ff007f;
-  --color-theme-2: #00aaff;
+  --color-theme-1: #2A7DF8;
+  --color-theme-2: #444444;
   --color-text: #444444;
   --column-width: 42rem;
   --column-margin-top: 4rem;
@@ -163,4 +163,10 @@ section {
   to {
     background-position: 200%;
   }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
