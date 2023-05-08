@@ -36,6 +36,7 @@
   async function loadNewQuestion() {
     triviaQuestion = null;
     result = null;
+    error = false;
     try {
       // AudioPlay.set("load_loop")
       const res = await fetch("/api/trivia", {
