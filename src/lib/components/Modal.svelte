@@ -30,11 +30,6 @@
       on:contextmenu|preventDefault|stopPropagation
       on:keydown={() => {}}
     >
-      {#if dismissable}
-        <button class="close" on:click={close}>
-            X
-        </button>
-      {/if}
       <div class="modal-content">
         <slot name="head" />
         <slot name="body" />
