@@ -7,13 +7,13 @@
 
   let links = [
     {
-      href: "/",
-      name: "Home",
+      href: "/trivia",
+      name: "Trivia",
       icon: null,
     },
     {
-      href: "/trivia",
-      name: "Trivia",
+      href: "/score",
+      name: "Score",
       icon: null,
     },
   ];
@@ -77,11 +77,11 @@
         <div class="account flex-column">
           <div class="flex-row bottom">
             <div class="flex-row">
-              <a href="#/account">
+              <a href="/account">
                 <!-- <ProfileImageBubble pictureSize="45px" /> -->
+                Account Page
               </a>
               <div class="flex-column user">
-				USER NAME
               </div>
             </div>
             <!-- <SignOutButton /> -->

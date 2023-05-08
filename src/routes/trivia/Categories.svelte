@@ -63,7 +63,7 @@ import { formatCategoryText } from "$lib/utils";
 </div>
 {#if showCategories}
   <div class="categories">
-    <h1>Categories</h1>
+    <h2>Categories</h2>
     <div class="categories-container">
       {#each categories as category}
         <button class="category" on:click={() => selectCategory(category)}>

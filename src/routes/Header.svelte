@@ -11,9 +11,6 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
 			<li aria-current={$page.url.pathname.startsWith('/trivia') ? 'page' : undefined}>
 				<a href="/trivia">Trivia</a>
 			</li>

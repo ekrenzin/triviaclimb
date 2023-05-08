@@ -1,6 +1,9 @@
 <script>
+	import { Auth } from '@supabase/auth-ui-svelte';
+	import { ThemeSupa } from '@supabase/auth-ui-shared';
 	import welcome from '$lib/images/svelte-welcome.webp';
 	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	export let data;
 </script>
 
 <svelte:head>
@@ -8,26 +11,26 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-	</h1>
+<section class="hero" id="hero">
+	<h1 class="gradient-text">Welcome!</h1>
+	<p> To track your score, you need be signed into an account.</p>
+	<h2>Enter your email:</h2>
+	<Auth
+		supabaseClient={data.supabase}
+		view="magic_link"
+		redirectTo={`${data.url}/logging-in?redirect=/`}
+		showLinks={false}
+		appearance={{ theme: ThemeSupa, style: { input: 'color: #fff', button: "background: black; border: none"  } }}
+	/>
 
 
 </section>
 
 <style>
+
 	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
+	  width: 1200px;
+	  max-width: 100%;
 	}
 
 	h1 {

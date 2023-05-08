@@ -8,10 +8,6 @@
 <div class="lds-hourglass" />
 
 <style>
-    
-  h2 {
-    font-weight: 900;
-}
   .lds-hourglass {
     display: inline-block;
     position: relative;

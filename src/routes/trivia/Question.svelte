@@ -65,7 +65,7 @@
 
   <div class="container">
     {#if triviaQuestion}
-    <h1>{triviaQuestion.question}</h1>
+    <h2>{triviaQuestion.question}</h2>
     <div class="choices">
       {#each triviaQuestion.choices as choice}
         <button class="choice" on:click={() => submit(choice)}>{cleanChoice(choice)}</button>

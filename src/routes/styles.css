@@ -126,3 +126,41 @@ button:focus:not(:focus-visible) {
   display: flex;
   flex-direction: column;
 }
+
+h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #333;
+}
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+p {
+  font-size: 1.4rem;
+  color: #777;
+  text-align: center;
+}
+
+section {
+  width: 1200px;
+  max-width: 100%;
+}
+
+.textShineBlack {
+  background: linear-gradient(to right, orange 20%, #bada55 30%, #bada44 70%, orange 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: textShine 7s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  to {
+    background-position: 200%;
+  }
+}
