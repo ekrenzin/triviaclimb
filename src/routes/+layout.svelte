@@ -45,6 +45,7 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
+	overflow-x: hidden;
   }
 
   main {
@@ -56,6 +57,7 @@
     box-sizing: border-box;
     overflow: auto;
     align-items: center;
+	overflow-x: hidden;
   }
 
   footer {

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import { User } from "$lib/Store";
   import Modal from "$lib/components/Modal.svelte";
   export let result: TriviaResult | null;
@@ -16,7 +17,9 @@
     result = null;
   }
 
-  $: if (result) showResult = true;
+  $: if (result) {
+    showResult = true;
+  }
 </script>
 
 {#if result}
@@ -53,9 +56,20 @@
         <p class="hint">{triviaQuestion.context}</p>
       {/if}
       {#if $User}
+      <div class="signed-in">
         <p>
           Thank you for playing, <b>{$User.email}</b>! Your result has been submitted.
         </p>
+        <p>
+          Your rating is now <b>{result.score.rating}</b>
+        </p>
+        <p>
+          You have answered <b>{result.score.correct}</b> questions correctly and <b>{result.score.incorrect}</b> questions incorrectly.
+        </p>
+      </div>
+      {:else}
+        <p>Sign in to submit your result and track your progress!</p>
+        <button on:click={() => goto("/account")} class="anchor-button">Sign in</button>
       {/if}
     </div>
   </Modal>
@@ -96,5 +110,16 @@
 
   .info:hover {
     transform: scale(1.1);
+  }
+
+  .signed-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .signed-in p {
+    margin: 0;
   }
 </style>
