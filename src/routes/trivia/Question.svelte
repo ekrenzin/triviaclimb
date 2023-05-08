@@ -7,6 +7,8 @@
   export let triviaQuestion: TriviaQuestion | null;
   export let result: TriviaResult | null;
 
+  let error: boolean = false;
+
   async function submit(choice: string) {
     if (!triviaQuestion) return;
     try {
@@ -45,6 +47,7 @@
       triviaQuestion = await res.json();
     } catch (e) {
       console.error(e);
+      error = true;
     }
   }
 
@@ -64,7 +67,10 @@
 </script>
 
   <div class="container">
-    {#if triviaQuestion}
+    {#if error}
+    <h2>There was an error loading a question, try again?</h2>
+    <button class="action-button" on:click={loadNewQuestion}>Load New Question</button>
+    {:else if triviaQuestion}
     <h2>{triviaQuestion.question}</h2>
     <div class="choices">
       {#each triviaQuestion.choices as choice}
