@@ -93,7 +93,7 @@
   }
 
   .modal {
-    background: var(--color-bg-2);
+    background: white;
     border-radius: 0.5rem;
     width: 90%;
     max-width: 900px;

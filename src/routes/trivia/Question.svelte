@@ -2,6 +2,7 @@
   import { SelectedCategory } from "$lib/Store";
   import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
   import { onDestroy } from "svelte";
+  import { AudioPlay } from "$lib/Store";
 
   export let triviaQuestion: TriviaQuestion | null;
   export let result: TriviaResult | null;
@@ -20,6 +21,11 @@
       });
       const data = await res.json();
       result = data.result;
+      if (result.correct) {
+        AudioPlay.set("correct_play")
+      } else {
+        AudioPlay.set("incorrect_play")
+      }
     } catch (e) {
       console.error(e);
     }
@@ -29,10 +35,13 @@
     triviaQuestion = null;
     result = null;
     try {
+      // AudioPlay.set("load_loop")
       const res = await fetch("/api/trivia", {
         method: "POST",
         body: JSON.stringify({ method: "question", category: $SelectedCategory }),
       });
+      // AudioPlay.set("load_pause")
+      
       triviaQuestion = await res.json();
     } catch (e) {
       console.error(e);

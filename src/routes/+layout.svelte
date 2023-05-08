@@ -1,12 +1,13 @@
 <script>
 	import Header from './Header.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
+	import AudioPlayer from '$lib/components/AudioPlayer.svelte';
 	import './styles.css';
 </script>
 
 <div class="app">
 	<Navbar />
-
+	<AudioPlayer />
 	<main>
 		<slot />
 	</main>

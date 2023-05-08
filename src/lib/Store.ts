@@ -6,3 +6,5 @@ export const SelectedFormattedCategory = derived(
   SelectedCategory,
   ($SelectedCategory) => formatCategoryText($SelectedCategory)
 );
+export const AudioQueue = writable([]);
+export const AudioPlay = writable()
