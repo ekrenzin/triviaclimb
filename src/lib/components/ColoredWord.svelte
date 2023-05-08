@@ -13,5 +13,5 @@
   </style>
   
   {#each word.split('') as letter, index}
-    <span style="color: {colors[index % colors.length]}; font-size: {scale}rem">{letter}</span>
+    <div><span style="color: {colors[index % colors.length]}; font-size: {scale}rem">{letter}</span></div>
   {/each}

@@ -32,9 +32,6 @@
 <AudioPlayer />
 <div class="app">
   <Navbar />
-  <div class="center" style="margin-top: 3rem">
-    <Logo scale={4} />
-  </div>
   <main>
     <slot />
   </main>

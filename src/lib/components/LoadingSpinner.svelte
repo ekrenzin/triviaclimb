@@ -1,13 +1,21 @@
 <script lang="ts">
     export let text: string;
+    export let subtext: string;
 </script>
 
 {#if text}
 <h2>{text}</h2>
+<p>{subtext}</p>
 {/if}
 <div class="lds-hourglass" />
 
 <style>
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: 0;
+  }
   .lds-hourglass {
     display: inline-block;
     position: relative;

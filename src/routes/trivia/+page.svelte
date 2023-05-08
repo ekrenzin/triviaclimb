@@ -10,10 +10,6 @@
   let triviaQuestion: TriviaQuestion;
 </script>
 
-<section class="hero" id="hero">
-  <p>
-   Welcome to trivia climb! You are playing in the {$SelectedFormattedCategory} category</p>
-</section>
 <section>
   <Question bind:triviaQuestion bind:result />
   {#if result}

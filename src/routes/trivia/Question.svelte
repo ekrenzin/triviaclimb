@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { SelectedCategory } from "$lib/Store";
+  import { SelectedCategory, SelectedFormattedCategory } from "$lib/Store";
   import LoadingSpinner from "$lib/components/LoadingSpinner.svelte";
   import { onDestroy } from "svelte";
   import { AudioPlay } from "$lib/Store";
@@ -79,7 +79,7 @@
     </div>
     <button class="action-button" on:click={loadNewQuestion}>Load New Question</button>
     {:else}
-    <LoadingSpinner text="Loading New Question" />
+    <LoadingSpinner text="Creating a New Question" subtext="You are playing in the {$SelectedFormattedCategory} category." />
     {/if}
   </div>
 
