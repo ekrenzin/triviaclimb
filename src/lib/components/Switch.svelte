@@ -26,7 +26,6 @@
       right: 0;
       bottom: 5px;
       background-color: var(--color-theme-2);
-      filter: brightness(0.5);
       -webkit-transition: 0.4s;
       transition: 0.4s;
       border-radius: 34px;
@@ -46,7 +45,7 @@
       transition-duration: 0.5s;
     }
     input:checked + .slider {
-      filter: brightness(1);
+      background-color: var(--color-theme-3);
     }
   
     input:checked + .slider:before {
