@@ -28,7 +28,7 @@
 <AudioPlayer />
 <div class="app">
   <Navbar />
-  <div class="center">
+  <div class="center" style="margin-top: 3rem">
     <Logo scale={4} />
   </div>
   <main>
@@ -40,9 +40,7 @@
   .app {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     width: 100vw;
-    overflow: hidden;
   }
 
   main {

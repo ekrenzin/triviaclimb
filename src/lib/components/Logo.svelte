@@ -11,13 +11,17 @@
 <style>
   .flex-row {
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   h3 {
-    color: var(--color-theme-1)
+    color: var(--color-theme-1);
+    margin: 0;
   }
 
   span {
-    color: var(--color-theme-2)
+    color: var(--color-theme-2);
+    margin: 0;
   }
 </style>
