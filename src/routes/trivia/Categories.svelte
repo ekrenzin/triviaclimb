@@ -9,7 +9,6 @@ import { formatCategoryText } from "$lib/utils";
 
   async function loadCategories() {
     try {
-      console.log("loading categories")
       const res = await fetch("/api/trivia", {
         method: "POST",
         body: JSON.stringify({ method: "categories" }),

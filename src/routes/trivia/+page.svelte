@@ -5,6 +5,7 @@
   import Categories from "./Categories.svelte";
   import { SelectedFormattedCategory } from "$lib/Store";
 
+	export let data;
   let result: TriviaResult;
   let triviaQuestion: TriviaQuestion;
 </script>

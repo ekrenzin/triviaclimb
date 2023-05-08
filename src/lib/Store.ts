@@ -8,3 +8,4 @@ export const SelectedFormattedCategory = derived(
 );
 export const AudioQueue = writable([]);
 export const AudioPlay = writable()
+export const User = writable();

@@ -7,17 +7,21 @@
   import { onMount } from "svelte";
   import type { LayoutData } from "./$types";
   import Logo from "$lib/components/Logo.svelte";
+  import { User } from "$lib/Store";
 
   export let data: LayoutData;
 
   $: ({ supabase, session } = data);
-
   onMount(() => {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, _session) => {
       if (_session?.expires_at !== session?.expires_at) {
         invalidate("supabase:auth");
+      }
+      if (_session && _session.user) {
+		const usr = _session.user;
+        User.set(usr);
       }
     });
 

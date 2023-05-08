@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { User } from "$lib/Store";
   import Modal from "$lib/components/Modal.svelte";
   export let result: TriviaResult | null;
   export let triviaQuestion: TriviaQuestion | null;
@@ -51,11 +52,19 @@
       {#if showHint && triviaQuestion}
         <p class="hint">{triviaQuestion.context}</p>
       {/if}
+      {#if $User}
+        <p>
+          Thank you for playing, <b>{$User.email}</b>! Your result has been submitted.
+        </p>
+      {/if}
     </div>
   </Modal>
 {/if}
 
 <style>
+  h1 {
+    margin: 0;
+  }
   .result-container {
     display: flex;
     flex-direction: column;

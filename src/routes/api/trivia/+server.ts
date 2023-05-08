@@ -1,6 +1,8 @@
 import { getQuestion, postAnswer, getCategories } from "./trivia.js";
 
-export async function POST({ request }) {
+export async function POST({ request, locals: { getSession } }) {
+  const session = await getSession();
+  const uid = session?.user.id;
   const body = await request.json();
   const { method } = body;
   let response: Response;
@@ -16,7 +18,13 @@ export async function POST({ request }) {
     return response;
   } else if (method === "answer") {
     const { answer, question } = body;
-    const result = await postAnswer(answer, question);
+    const data = {
+      method,
+      answer,
+      question,
+      auth: {uid},
+    };
+    const result = await postAnswer(data);
     response = new Response(JSON.stringify(result), {
       status: 200,
       headers: {
