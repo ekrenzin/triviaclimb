@@ -169,12 +169,21 @@ section {
   align-items: center;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   h1 {
     font-size: 3rem;
   }
 
   h2 {
     font-size: 2rem;
+  }
+}
+@media (max-width: 400px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 }
