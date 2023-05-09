@@ -1,14 +1,13 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-import fs from 'fs';
+import https from 'https';
 
 let server = {};
-
 if (process.env.NODE_ENV === 'development') {
   server = {
 	https: {
-	  key: fs.readFileSync('./key.pem'),
-	  cert: fs.readFileSync('./cert.pem'),
+		cert: './localhost.pem',
+		key: './localhost-key.pem',
 	},
   };
 }
