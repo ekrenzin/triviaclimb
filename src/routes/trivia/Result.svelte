@@ -2,10 +2,12 @@
   import { goto } from "$app/navigation";
   import { User } from "$lib/Store";
   import Modal from "$lib/components/Modal.svelte";
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
   export let result: TriviaResult | null;
   export let triviaQuestion: TriviaQuestion | null;
-
-  export let dismiss: () => void;
 
   let showHint = false;
   let showResult = false;
@@ -14,54 +16,54 @@
     showHint = !showHint;
   }
 
-
-
-  function hideResult() {
+  function dismiss() {
     showResult = false;
     result = null;
-    dismiss();
+    dispatch("dismiss");
   }
 
   $: if (result) {
     showResult = true;
   }
+
 </script>
 
 {#if result && triviaQuestion}
-  <Modal bind:showing={showResult} dismiss={hideResult}>
+  <Modal bind:showing={showResult} {dismiss}>
     <div slot="head" class="head">
       <h1 class={result.correct ? "correct" : "incorrect"}>
         {result.correct ? "Correct" : "Incorrect"}
       </h1>
-      
     </div>
     <div slot="body" class="result-container">
       <p class={result.correct ? "correct" : "incorrect"}>
         You answered "{result.answer}"
       </p>
-      
-      <button class="info" on:click={toggleHint}>
-          Show Info
-        </button>
+
+      <button class="info" on:click={toggleHint}> Show Info </button>
       {#if showHint}
         <p class="hint">{triviaQuestion.context}</p>
-        {/if}
+      {/if}
       {#if $User}
-      <div class="signed-in">
-        <p>
-          Thank you for playing, <b>{$User.email}</b>! Your result has been submitted.
-        </p>
-        <p>
-          Your rating is now <b>{result.score.rating}</b>
-        </p>
-        <p>
-          You have answered <b>{result.score.correct}</b> questions correctly and <b>{result.score.incorrect}</b> questions incorrectly.
-        </p>
-      </div>
+        <div class="signed-in">
+          <p>
+            Thank you for playing, <b>{$User.email}</b>! Your result has been
+            submitted.
+          </p>
+          <p>
+            Your rating is now <b>{result.score.rating}</b>
+          </p>
+          <p>
+            You have answered <b>{result.score.correct}</b> questions correctly
+            and <b>{result.score.incorrect}</b> questions incorrectly.
+          </p>
+        </div>
       {:else}
         <p>Sign in to submit your result and track your progress!</p>
         <div class="center">
-          <button on:click={() => goto("/account")} class="anchor-button">Sign in</button>
+          <button on:click={() => goto("/account")} class="anchor-button"
+            >Sign in</button
+          >
         </div>
       {/if}
     </div>

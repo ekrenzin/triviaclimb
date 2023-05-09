@@ -8,17 +8,17 @@
 	export let data;
   let result: TriviaResult | null;
   let triviaQuestion: TriviaQuestion | null;
-
-  const dismiss = () => {
-    result = null;
-    triviaQuestion = null;
-  };
+  let loadNewQuestion: () => Promise<void>;
+  
+  function handleMessage(e: CustomEvent) {
+    loadNewQuestion();
+  }
 </script>
 
 <section>
-  <Question bind:triviaQuestion bind:result />
+  <Question bind:triviaQuestion bind:result bind:loadNewQuestion />
   {#if result}
-    <Result bind:triviaQuestion bind:result {dismiss}/>
+    <Result bind:triviaQuestion bind:result on:dismiss={handleMessage} />
   {/if}
 </section>
 <section>
