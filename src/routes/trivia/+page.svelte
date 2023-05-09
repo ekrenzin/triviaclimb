@@ -6,14 +6,19 @@
   import { SelectedFormattedCategory } from "$lib/Store";
 
 	export let data;
-  let result: TriviaResult;
-  let triviaQuestion: TriviaQuestion;
+  let result: TriviaResult | null;
+  let triviaQuestion: TriviaQuestion | null;
+
+  const dismiss = () => {
+    result = null;
+    triviaQuestion = null;
+  };
 </script>
 
 <section>
   <Question bind:triviaQuestion bind:result />
   {#if result}
-    <Result bind:triviaQuestion bind:result />
+    <Result bind:triviaQuestion bind:result {dismiss}/>
   {/if}
 </section>
 <section>

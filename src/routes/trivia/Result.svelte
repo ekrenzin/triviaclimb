@@ -5,6 +5,7 @@
   export let result: TriviaResult | null;
   export let triviaQuestion: TriviaQuestion | null;
 
+  export let dismiss: () => void;
 
   let showHint = false;
   let showResult = false;
@@ -18,6 +19,7 @@
   function hideResult() {
     showResult = false;
     result = null;
+    dismiss();
   }
 
   $: if (result) {
