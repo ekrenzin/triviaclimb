@@ -13,8 +13,8 @@
       icon: null,
     },
     {
-      href: "/score",
-      name: "Score",
+      href: "/login",
+      name: "Sign in",
       icon: null,
     },
   ];
@@ -31,7 +31,7 @@
   id="mobile-menu"
   class:solid={menuOpen}
   on:pointerdown={(e) => e.stopPropagation()}
-  out:fade
+  out:slide
 >
   <div class="flex-row top">
     <Logo />
@@ -81,26 +81,13 @@
     </button>
   </div>
   {#if menuOpen}
-    <div in:slide class="slide-content">
+    <div in:slide out:slide class="slide-content">
       <div class="links flex-column">
         {#each links as link}
           <a href={`${link.href}`} class="row">
             {link.name}
           </a>
         {/each}
-      </div>
-      <hr />
-      <div class="account flex-column">
-        <div class="flex-row bottom">
-          <div class="flex-row">
-            <a href="/account">
-              <!-- <ProfileImageBubble pictureSize="45px" /> -->
-              Account Page
-            </a>
-            <div class="flex-column user" />
-          </div>
-          <!-- <SignOutButton /> -->
-        </div>
       </div>
     </div>
   {/if}
@@ -119,7 +106,7 @@
     color: black;
     display: flex;
     padding: 10px 20px;
-    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-color: white;
   }
 
   .row {

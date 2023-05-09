@@ -6,11 +6,12 @@
   --color-bg-0: #ffffff;
   --color-bg-1: #f2f2f2;
   --color-bg-2: #ffe1e1;
-  --color-theme-1: #2980b9;
+  --color-theme-1: #48B1F5;
   --color-theme-2: #e74c3c;
   --color-theme-3: #2ecc71;
   --color-theme-4: #f1c40f;
   --color-text: #444444;
+  --neutrals-4: #E6E6E6;
   --column-width: 42rem;
   --column-margin-top: 4rem;
   font-family: var(--font-body);
@@ -23,6 +24,7 @@ body {
   background-attachment: fixed;
   background-color: var(--color-bg-1);
   background-size: 100vw 100vh;
+  box-sizing: border-box;
 }
 body {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
@@ -145,6 +147,11 @@ p {
 section {
   width: 1200px;
   max-width: 100%;
+  background-color: white;
+  border-radius: 2rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
 }
 
 .textShineBlack {

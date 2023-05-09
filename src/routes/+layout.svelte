@@ -1,12 +1,10 @@
 <script lang="ts">
-  import Header from "./Header.svelte";
   import Navbar from "$lib/components/Navbar.svelte";
   import AudioPlayer from "$lib/components/AudioPlayer.svelte";
   import "./styles.css";
   import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
   import type { LayoutData } from "./$types";
-  import Logo from "$lib/components/Logo.svelte";
   import { User } from "$lib/Store";
 
   export let data: LayoutData;
@@ -20,7 +18,7 @@
         invalidate("supabase:auth");
       }
       if (_session && _session.user) {
-		const usr = _session.user;
+        const usr = _session.user;
         User.set(usr);
       }
     });
@@ -29,6 +27,7 @@
   });
 </script>
 
+<div class="bg"/>
 <AudioPlayer />
 <div class="app">
   <Navbar />
@@ -38,40 +37,47 @@
 </div>
 
 <style>
+  .bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* background-image: url("$lib/assets/bg2.png"); */
+    z-index: -1;
+    opacity: 0.01;
+    animation: bg 10s ease-in-out infinite alternate;
+    transform: scale(1.5);
+  }
+
+  @keyframes bg {
+    0% {
+      opacity: 0.1;
+      transform: rotate(0deg);
+    }
+    100% {
+      opacity: 0.2;
+      transform: rotate(360deg);
+    }
+  }
+
   .app {
     display: flex;
     flex-direction: column;
     width: 100vw;
-	overflow-x: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--color-theme-1);
   }
 
   main {
     padding: 1rem;
     flex: 1;
-    display: flex;
-    flex-direction: column;
     width: 100%;
+    min-height: 100%;
     box-sizing: border-box;
     overflow: auto;
-    align-items: center;
-	overflow-x: hidden;
+    overflow-x: hidden;
   }
 
-  footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 12px;
-  }
-
-  footer a {
-    font-weight: bold;
-  }
-
-  @media (min-width: 480px) {
-    footer {
-      padding: 12px 0;
-    }
-  }
 </style>
