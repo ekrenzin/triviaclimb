@@ -2,11 +2,11 @@
   import supabase from "$lib/supabase";
 
   async function signInWithGoogle() {
-    console.log(window.location.origin);
+    const url = new URL(window.location.href);
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: window.location.origin,
+        redirectTo: url.origin,
       },
     });
   }

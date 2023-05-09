@@ -13,6 +13,11 @@
       icon: null,
     },
     {
+      href: "/score",
+      name: "Score",
+      icon: null,
+    },
+    {
       href: "/login",
       name: "Sign in",
       icon: null,

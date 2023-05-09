@@ -15,5 +15,9 @@ export const load = async ({ url, locals: { getSession } }) => {
 		throw redirect(303, '/login');
 	}
 
+    if (session && url.pathname === "/login") {
+        throw redirect(303, '/trivia');
+    }
+
 	return { url: url.origin };
 };
