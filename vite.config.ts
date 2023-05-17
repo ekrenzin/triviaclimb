@@ -1,6 +1,8 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-import https from 'https';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 let server = {};
 if (process.env.NODE_ENV === 'development') {

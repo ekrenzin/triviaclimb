@@ -77,6 +77,7 @@
     min-height: 100%;
     box-sizing: border-box;
     overflow: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;

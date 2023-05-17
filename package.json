@@ -2,7 +2,7 @@
 	"name": "trivia-app",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "vite dev --port=3000 NODE_ENV=development",
+		"dev": "cross-env NODE_ENV=development vite dev --port=3000",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -14,6 +14,7 @@
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.5.0",
 		"@types/cookie": "^0.5.1",
+		"cross-env": "^7.0.3",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"tslib": "^2.4.1",
@@ -25,6 +26,7 @@
 		"@supabase/auth-helpers-sveltekit": "^0.9.4",
 		"@supabase/auth-ui-shared": "^0.1.4",
 		"@supabase/auth-ui-svelte": "^0.1.6",
+		"dotenv": "^16.0.3",
 		"https": "^1.0.0"
 	}
 }

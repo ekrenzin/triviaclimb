@@ -6,12 +6,12 @@
   --color-bg-0: #ffffff;
   --color-bg-1: #f2f2f2;
   --color-bg-2: #ffe1e1;
-  --color-theme-1: #48B1F5;
+  --color-theme-1: #48b1f5;
   --color-theme-2: #e74c3c;
   --color-theme-3: #2ecc71;
   --color-theme-4: #f1c40f;
   --color-text: #444444;
-  --neutrals-4: #E6E6E6;
+  --neutrals-4: #e6e6e6;
   --column-width: 42rem;
   --column-margin-top: 4rem;
   font-family: var(--font-body);
@@ -25,9 +25,11 @@ body {
   background-color: var(--color-bg-1);
   background-size: 100vw 100vh;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 body {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  
 }
 
 h1,
@@ -99,24 +101,25 @@ button:focus:not(:focus-visible) {
   white-space: nowrap;
 }
 
-.action-button, .anchor-button {
+.action-button,
+.anchor-button {
   text-decoration: none;
-    background-color: #0077cc;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    padding: 12px 24px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
+  background-color: #0077cc;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
 
-  .action-button:hover, .anchor-button:hover {
-    background-color: #005fa3;
-  }
+.action-button:hover,
+.anchor-button:hover {
+  background-color: #005fa3;
+}
 
-  
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -152,10 +155,18 @@ section {
   padding: 1rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
+  /* box shadow */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .textShineBlack {
-  background: linear-gradient(to right, orange 20%, #bada55 30%, #bada44 70%, orange 80%);
+  background: linear-gradient(
+    to right,
+    orange 20%,
+    #bada55 30%,
+    #bada44 70%,
+    orange 80%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -163,7 +174,32 @@ section {
   background-size: 200% auto;
   animation: textShine 7s ease-in-out infinite alternate;
 }
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Adjust the width as per your preference */
+  background-color: transparent; /* Hide the background */
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Hide the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Change the color of the scrollbar handle */
+  border-radius: 3px; /* Adjust the border radius as per your preference */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Change the color of the scrollbar handle on hover */
+}
+
+/* Optional: Add some padding to the scrollable content */
+.scrollable-content {
+  padding-right: 6px; /* Adjust the padding to prevent content from being hidden behind the scrollbar */
+}
 @keyframes textShine {
   to {
     background-position: 200%;

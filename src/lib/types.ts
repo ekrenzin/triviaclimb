@@ -6,6 +6,7 @@ interface TriviaScore {
     correctStreak: number;
     incorrectStreak: number;
     streakType: number;
+    name: string;
   }
   
   interface TriviaResult {
