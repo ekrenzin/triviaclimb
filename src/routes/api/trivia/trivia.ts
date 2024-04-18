@@ -1,7 +1,7 @@
 export { getQuestion, postAnswer, getCategories };
 
+const url = "https://ai-point.vercel.app/api/trivia";
 async function getQuestion(category?: string) {
-  const url = "http://44.226.228.62:8080/api/trivia";
   const res = await fetch(url, {
     method: "POST",
     headers: {
@@ -13,6 +13,7 @@ async function getQuestion(category?: string) {
         category === "Random" || category === undefined ? null : category,
     }),
   });
+  console.log(res);
   const result = await res.json();
   const triviaQuestion = result.question;
 
@@ -25,7 +26,6 @@ async function postAnswer(data: {
   question: number;
   auth: { uid: string };
 }) {
-  const url = "http://44.226.228.62:8080/api/trivia";
   const res = await fetch(url, {
     method: "POST",
     headers: {
@@ -38,7 +38,6 @@ async function postAnswer(data: {
 }
 
 async function getCategories() {
-  const url = "http://44.226.228.62:8080/api/trivia";
   const res = await fetch(url, {
     method: "POST",
     headers: {
